@@ -9,7 +9,10 @@ services:
     volumes:
       - ./web:/var/www/html
   wordpress:
-    build: requirements/wordpress/
+    build: requirements/wordpress/.
     container_name: wp-php
     volumes:
       - ./web:/var/www/html
+  mariadb:
+    build: requirements/mariadb/.
+    container_name: mariadb
