@@ -11,6 +11,7 @@ services:
   wordpress:
     build: requirements/wordpress/.
     container_name: wp-php
+    env_file: .env
     volumes:
       - ./web:/var/www/html
   mariadb:
