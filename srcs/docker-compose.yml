@@ -17,3 +17,4 @@ services:
   mariadb:
     build: requirements/mariadb/.
     container_name: mariadb
+    env_file: .env
