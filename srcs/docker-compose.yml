@@ -10,7 +10,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./web:/var/www/html
+      - wp_volume:/var/www/html
     networks:
       inception:
   wordpress:
@@ -20,7 +20,7 @@ services:
       - mariadb
     env_file: .env
     volumes:
-      - ./web:/var/www/html
+      - wp_volume:/var/www/html
     networks:
       inception:
   mariadb:
@@ -28,8 +28,25 @@ services:
     container_name: mariadb
     env_file: .env
     volumes:
-      - ./database:/var/lib/mysql
+      - mariadb_volume:/var/lib/mysql
     networks:
       inception:
+
+volumes:
+  wp_volume:
+    driver: local
+    name: "wp"
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/ftanon/data/wp'
+  mariadb_volume:
+    driver: local
+    name: "mariadb"
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/ftanon/data/mariadb'
+
 networks:
       inception:
