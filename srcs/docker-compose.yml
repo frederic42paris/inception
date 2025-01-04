@@ -49,4 +49,5 @@ volumes:
       device: '/home/ftanon/data/mariadb'
 
 networks:
-      inception:
+  inception:
+    name: inception
