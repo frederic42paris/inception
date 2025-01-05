@@ -38,5 +38,5 @@ clean-all:
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: all build stop start clean ls-container ls-volume ls-network ls-all clean-all re
 
