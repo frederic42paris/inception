@@ -39,4 +39,3 @@ clean-all:
 re: clean all
 
 .PHONY: all build stop start clean ls-container ls-volume ls-network ls-all clean-all re
-
