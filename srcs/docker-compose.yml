@@ -4,15 +4,16 @@ services:
   nginx:
     build: requirements/nginx/.
     container_name: nginx
+    env_file: .env
     depends_on:
       - wordpress
-      - mariadb
     ports:
       - "443:443"
     volumes:
       - wp_volume:/var/www/html
     networks:
       inception:
+  
   wordpress:
     build: requirements/wordpress/.
     container_name: wp-php
@@ -21,8 +22,11 @@ services:
     env_file: .env
     volumes:
       - wp_volume:/var/www/html
+    expose:
+      - "9000"
     networks:
       inception:
+
   mariadb:
     build: requirements/mariadb/.
     container_name: mariadb
