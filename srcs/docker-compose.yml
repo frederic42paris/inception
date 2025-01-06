@@ -6,7 +6,7 @@ services:
     container_name: nginx
     env_file: .env
     depends_on:
-      - wordpress
+      - wordpress-phpfpm
     ports:
       - "443:443"
     volumes:
@@ -14,9 +14,9 @@ services:
     networks:
       inception:
   
-  wordpress:
+  wordpress-phpfpm:
     build: requirements/wordpress/.
-    container_name: wp-php
+    container_name: wordpress-phpfpm
     depends_on:
       - mariadb
     env_file: .env
